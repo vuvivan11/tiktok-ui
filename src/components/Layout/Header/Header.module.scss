@@ -1,4 +1,6 @@
 .wrapper {
+    --search-button-width: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -15,6 +17,7 @@
 }
 
 .search {
+    position: relative;
     width: 362px;
     height: 46px;
     background-color: rgba(22, 24, 35, 0.06);
@@ -23,6 +26,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    border: 1.5px solid transparent;
 
     input {
         height: 100%;
@@ -30,37 +34,44 @@
         font-size: 1.6rem;
         flex: 1;
 
-        &:focus {
-            .search {
-                border: 1px solid rgb(197 198 201);
-            }
-        }
+        caret-color: rgba(254, 44, 85, 1);
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 28px;
+        right: 52px;
+        top: 9px;
+        background: rgba(22, 24, 35, 0.12);
+    }
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
     }
 }
 
-.close {
-}
-
+.close,
 .spinner {
+    position: absolute;
+    color: rgba(22, 24, 35, 0.34);
+    right: 52px;
+    right: calc(var(--search-button-width) + 16px);
 }
 
-.search-icon {
-    position: relative;
+.search-btn {
     width: 52px;
     height: 100%;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 1.9rem;
     cursor: pointer;
 
     &:hover {
         background: rgba(22, 24, 35, 0.03);
     }
 
-    &::before {
-        position: absolute;
-        content: "";
-        width: 1px;
-        height: 28px;
-        right: 52px;
-        top: 9px;
-        background: rgba(22, 24, 35, 0.12);
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
     }
 }
