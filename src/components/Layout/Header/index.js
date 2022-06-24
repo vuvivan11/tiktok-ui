@@ -3,17 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper'
+import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 let cx = classNames.bind(styles);
 
 export default function Header() {
     const [inputText, setInputText] = useState(false);
-    const [searchResult, setSearchResult] = useState([])
+    const [searchResult, setSearchResult] = useState([]);
     const handleChangeColor = (e) => {
         if (e.target.value) {
             setInputText(true);
@@ -24,23 +25,27 @@ export default function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3])
-        }, 3000)
-    }, [])
+            setSearchResult([1, 2, 3]);
+        }, 3000);
+    }, []);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="logo" />
-                <Tippy interactive visible={searchResult.length > 0} render={attrs => (
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper>
-                            <h4 className={cx('search-result-heading')}>Accounts</h4>
-                            <AccountItem />
-                            <AccountItem />
-                            <AccountItem />
-                        </PopperWrapper>
-                    </div>
-                )}>
+                <Tippy
+                    interactive
+                    visible={searchResult.length > 0}
+                    render={(attrs) => (
+                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                            <PopperWrapper>
+                                <h4 className={cx('search-result-heading')}>Accounts</h4>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                            </PopperWrapper>
+                        </div>
+                    )}
+                >
                     <div className={cx('search')}>
                         <input placeholder="Search accounts and videos" onChange={handleChangeColor} />
                         <button className={cx('close')}>
@@ -65,7 +70,10 @@ export default function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
+                </div>
             </div>
         </header>
     );
