@@ -6,28 +6,35 @@ import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { faCircleXmark, faEllipsisVertical, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faCircleXmark,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 
 let cx = classNames.bind(styles);
 
-// const MENU_ITEM = [
-//     {
-//         icon: <FontAwesomeIcon icon={faEarthAsia} />,
-//         title: 'English'
-//     },
-//     {
-//         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-//         title: 'Feedback and help',
-//         to: '/feedback'
-//     },
-//     {
-//         icon: <FontAwesomeIcon icon={faKeyboard} />,
-//         title: 'Keyboard shortcuts'
-//     }
-// ]
+const MENU_ITEM = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+];
 
 export default function Header() {
     const [inputText, setInputText] = useState(false);
@@ -91,7 +98,11 @@ export default function Header() {
                     <Button text>Upload</Button>
                     <Button primary>Log in</Button>
 
-                    <Menu><button className={cx('menu-icon')}><FontAwesomeIcon icon={faEllipsisVertical} /></button></Menu>
+                    <Menu items={MENU_ITEM}>
+                        <button className={cx('menu-icon')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
