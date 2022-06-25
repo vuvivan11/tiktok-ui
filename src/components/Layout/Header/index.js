@@ -6,11 +6,28 @@ import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faEllipsisVertical, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 let cx = classNames.bind(styles);
+
+// const MENU_ITEM = [
+//     {
+//         icon: <FontAwesomeIcon icon={faEarthAsia} />,
+//         title: 'English'
+//     },
+//     {
+//         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+//         title: 'Feedback and help',
+//         to: '/feedback'
+//     },
+//     {
+//         icon: <FontAwesomeIcon icon={faKeyboard} />,
+//         title: 'Keyboard shortcuts'
+//     }
+// ]
 
 export default function Header() {
     const [inputText, setInputText] = useState(false);
@@ -23,11 +40,11 @@ export default function Header() {
         }
     };
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 3000);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSearchResult([1, 2, 3]);
+    //     }, 3000);
+    // }, []);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -73,6 +90,8 @@ export default function Header() {
                 <div className={cx('action')}>
                     <Button text>Upload</Button>
                     <Button primary>Log in</Button>
+
+                    <Menu><button className={cx('menu-icon')}><FontAwesomeIcon icon={faEllipsisVertical} /></button></Menu>
                 </div>
             </div>
         </header>
