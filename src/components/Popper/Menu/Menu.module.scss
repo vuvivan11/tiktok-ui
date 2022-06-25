@@ -3,7 +3,7 @@
 
     .menu-item {
         margin-left: 0;
-        padding: 14px 16px;
+        padding: 11px 16px;
     }
 }
 
@@ -20,4 +20,24 @@
     &:hover {
         background: rgba(22, 24, 35, 0.03);
     }
+}
+
+// header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
+.back-btn {
+    width: 50px;
+    height: 100%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
