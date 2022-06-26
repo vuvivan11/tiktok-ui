@@ -1,5 +1,5 @@
-@import "normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&family=Open+Sans&display=swap");
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&family=Open+Sans&display=swap');
 
 :root {
     --primary: #fe2c55;
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -39,4 +39,23 @@ button,
 a[href] {
     text-decoration: none;
     color: var(--text-color);
+}
+
+// tippy custom
+body {
+    .tippy-box {
+        border-radius: 8px;
+    }
+    .tippy-content {
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        background-color: rgba(84, 84, 84, 0.92);
+        color: rgb(255, 255, 255);
+        padding: 8px;
+    }
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
 }
