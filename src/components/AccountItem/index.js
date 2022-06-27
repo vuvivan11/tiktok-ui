@@ -7,21 +7,21 @@ import Image from '../Image';
 
 let cx = classNames.bind(styles);
 
-export default function AccountItem() {
+export default function AccountItem({ data }) {
     return (
         <div className={cx('wrapper')}>
             <Image
                 className={cx('avatar')}
-                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/51faeb2beb46a239fccc193230a4259b~c5_100x100.jpeg?x-expires=1656126000&x-signature=D%2FT%2BB%2F05SXtzlV%2Bpm7s0EIAkpQY%3D"
-                alt="avatar"
+                src={data.avatar}
+                alt={data.nickname}
             />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
-                    <span>Nguyen Van A</span>
-                    <FontAwesomeIcon className={cx('icon-check')} icon={faCheckCircle} />
+                    <span>{data.full_name}</span>
+                    {data.tick && <FontAwesomeIcon className={cx('icon-check')} icon={faCheckCircle} />}
                 </h4>
 
-                <span className={cx('username')}>nguyenvana</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
         </div>
     );
