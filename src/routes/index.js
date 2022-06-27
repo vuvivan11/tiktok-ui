@@ -9,7 +9,7 @@ import UploadPage from "~/pages/Home/UploadPage";
 const homeRoutes = [
     { path: "/", component: HomePage },
     { path: "/follow", component: FollowingPage },
-    { path: "/profile", component: ProfilePage },
+    { path: "/@:nickname", component: ProfilePage },
     { path: "/upload", component: UploadPage, layout: HeaderOnly },
     { path: "/search", component: SearchPage, layout: null },
 ];

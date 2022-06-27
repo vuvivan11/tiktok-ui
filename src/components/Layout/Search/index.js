@@ -7,6 +7,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDebounce } from '~/components/Hook';
 
 const cx = classNames.bind(styles);
 
@@ -22,21 +23,29 @@ export default function Search() {
         setInputSearch(e.target.value);
     };
 
-    const handleClear = () => {
+    const handleClearText = () => {
         setInputSearch('');
         setSearchResult([]);
         refInput.current.focus();
     };
 
+    const handleClearSearch = () => {
+        setInputSearch('')
+    }
+
+    // debounce xu ly nhap xong trong 500ms moi request query
+    const debouncedSearchTerm = useDebounce(inputSearch, 500);
+
+
     useEffect(() => {
-        if (!inputSearch.trim()) {
+        if (!debouncedSearchTerm.trim()) {
             setSearchResult([])
             return
         }
 
         setLoading(true)
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(inputSearch)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouncedSearchTerm)}&type=less`)
             .then(res => res.json())
             .then(res => {
                 setSearchResult(res.data)
@@ -44,7 +53,7 @@ export default function Search() {
             }).catch(() => {
                 setLoading(false)
             })
-    }, [inputSearch]);
+    }, [debouncedSearchTerm]);
 
     return (
         <div>
@@ -56,7 +65,7 @@ export default function Search() {
                         <PopperWrapper>
                             <h4 className={cx('search-result-heading')}>Accounts</h4>
                             {searchResult.map((item) => {
-                                return <AccountItem key={item.id} data={item} />
+                                return <AccountItem key={item.id} data={item} onClick={handleClearSearch} />
                             })}
                         </PopperWrapper>
                     </div>
@@ -75,7 +84,7 @@ export default function Search() {
                             setShowResult(true);
                         }}
                     />
-                    <button className={cx('close')} onClick={handleClear}>
+                    <button className={cx('close')} onClick={handleClearText}>
                         {!!inputSearch && !loading && <FontAwesomeIcon icon={faCircleXmark} />}
                     </button>
                     {loading && <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />}
