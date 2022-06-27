@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+.logo-link {
+    display: flex;
+}
+
 .search {
     position: relative;
     height: 46px;
@@ -43,7 +47,7 @@
 
     &::after {
         position: absolute;
-        content: '';
+        content: "";
         width: 1px;
         height: 28px;
         right: 52px;

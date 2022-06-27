@@ -5,13 +5,15 @@ import ProfilePage from "~/pages/Home/ProfilePage";
 import SearchPage from "~/pages/Home/SearchPage";
 import UploadPage from "~/pages/Home/UploadPage";
 
+import routes from "~/config/routes";
+
 
 const homeRoutes = [
-    { path: "/", component: HomePage },
-    { path: "/follow", component: FollowingPage },
-    { path: "/@:nickname", component: ProfilePage },
-    { path: "/upload", component: UploadPage, layout: HeaderOnly },
-    { path: "/search", component: SearchPage, layout: null },
+    { path: routes.home, component: HomePage },
+    { path: routes.follow, component: FollowingPage },
+    { path: routes.profile, component: ProfilePage },
+    { path: routes.upload, component: UploadPage, layout: HeaderOnly },
+    { path: routes.search, component: SearchPage, layout: null },
 ];
 
 const adminRoutes = [];

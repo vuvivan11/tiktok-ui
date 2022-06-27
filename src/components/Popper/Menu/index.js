@@ -8,9 +8,9 @@ import Header from './Header';
 
 let cx = classNames.bind(styles);
 
-const defaultFnc = () => {};
+const defaultFnc = () => { };
 
-export default function Menu({ children, items = [], onChange = defaultFnc }) {
+export default function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc }) {
     // console.log(items);
     // tạo mảng history có obj key là data <=> item.children có obj key data => lấy đc mảng hiện tại muốn render
     const [history, setHistory] = useState([{ data: items }]);
@@ -46,6 +46,8 @@ export default function Menu({ children, items = [], onChange = defaultFnc }) {
             offset={[12, 10]}
             // visible
             delay={[0, 700]}
+            // hideOnClick => an khi click outside
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>

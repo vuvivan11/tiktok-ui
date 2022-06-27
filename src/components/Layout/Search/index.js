@@ -21,7 +21,10 @@ export default function Search() {
     const refInput = useRef();
 
     const handleInputChange = (e) => {
-        setInputSearch(e.target.value);
+        const searchValue = e.target.value
+        if (!searchValue.startsWith(' ')) {
+            setInputSearch(searchValue);
+        }
     };
 
     const handleClearText = () => {
@@ -58,6 +61,7 @@ export default function Search() {
     }, [debouncedSearchTerm]);
 
     return (
+        // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div>
             <HeadlessTippy
                 interactive
@@ -91,7 +95,7 @@ export default function Search() {
                     </button>
                     {loading && <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />}
 
-                    <button className={cx('search-btn')}>
+                    <button className={cx('search-btn')} onMouseDown={e => e.preventDefault}>
                         <SearchIcon />
                     </button>
                 </div>
