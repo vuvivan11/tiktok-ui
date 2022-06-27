@@ -8,6 +8,7 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDebounce } from '~/components/Hook';
+import * as searchService from '~/apiService/searchService'
 
 const cx = classNames.bind(styles);
 
@@ -43,16 +44,17 @@ export default function Search() {
             return
         }
 
-        setLoading(true)
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouncedSearchTerm)}&type=less`)
-            .then(res => res.json())
-            .then(res => {
-                setSearchResult(res.data)
-                setLoading(false)
-            }).catch(() => {
-                setLoading(false)
-            })
+
+        const fetchApi = async () => {
+            setLoading(true)
+
+            const result = await searchService.search(debouncedSearchTerm)
+            setSearchResult(result)
+            setLoading(false)
+        }
+        fetchApi()
+
     }, [debouncedSearchTerm]);
 
     return (
