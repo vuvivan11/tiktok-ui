@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { homeRoutes } from "~/routes";
-import DefaultLayout from "./components/Layout/DefaultLayout";
-import HeaderOnly from "./components/Layout/HeaderOnly";
+import DefaultLayout from "./Layouts/DefaultLayout";
+import HeaderOnly from "./Layouts/HeaderOnly";
 
 function App() {
   return (
