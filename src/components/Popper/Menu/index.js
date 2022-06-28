@@ -56,6 +56,7 @@ export default function Menu({ children, items = [], hideOnClick = false, onChan
                             <Header
                                 title={current.title}
                                 onBack={() => {
+                                    // back to menu
                                     setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
                             />
@@ -65,6 +66,7 @@ export default function Menu({ children, items = [], hideOnClick = false, onChan
                 </div>
             )}
             onHide={() => {
+                // reset to menu page
                 setHistory((prev) => prev.slice(0, 1));
             }}
         >

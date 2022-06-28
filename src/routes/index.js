@@ -6,12 +6,14 @@ import SearchPage from "~/pages/Home/SearchPage";
 import UploadPage from "~/pages/Home/UploadPage";
 
 import config from "~/config";
+import LivePage from "~/pages/Home/LivePage";
 
 
 const homeRoutes = [
     { path: config.routes.home, component: HomePage },
     { path: config.routes.follow, component: FollowingPage },
     { path: config.routes.profile, component: ProfilePage },
+    { path: config.routes.live, component: LivePage },
     { path: config.routes.upload, component: UploadPage, layout: HeaderOnly },
     { path: config.routes.search, component: SearchPage, layout: null },
 ];
