@@ -94,7 +94,9 @@ export default function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link className={cx('logo-link')} to={routes.home}><img src={images.logo} alt="logo" /></Link>
+                <Link className={cx('logo-link')} to={routes.home}>
+                    <img src={images.logo} alt="logo" />
+                </Link>
                 <Search />
                 <div className={cx('action')}>
                     {currentUser ? (

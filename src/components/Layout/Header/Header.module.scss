@@ -1,11 +1,12 @@
 .wrapper {
     --search-button-width: 52px;
-
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-    display: flex;
-    justify-content: center;
+    position: fixed;
+    background-color: var(--white);
 }
 
 .inner {
@@ -47,7 +48,7 @@
 
     &::after {
         position: absolute;
-        content: "";
+        content: '';
         width: 1px;
         height: 28px;
         right: 52px;

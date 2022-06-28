@@ -8,7 +8,7 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDebounce } from '~/components/Hook';
-import * as searchService from '~/apiService/searchService'
+import * as searchService from '~/apiService/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -16,12 +16,12 @@ export default function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [inputSearch, setInputSearch] = useState('');
     const [showResult, setShowResult] = useState(true);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const refInput = useRef();
 
     const handleInputChange = (e) => {
-        const searchValue = e.target.value
+        const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
             setInputSearch(searchValue);
         }
@@ -34,30 +34,26 @@ export default function Search() {
     };
 
     const handleClearSearch = () => {
-        setInputSearch('')
-    }
+        setInputSearch('');
+    };
 
     // debounce xu ly nhap xong trong 500ms moi request query
     const debouncedSearchTerm = useDebounce(inputSearch, 500);
 
-
     useEffect(() => {
         if (!debouncedSearchTerm.trim()) {
-            setSearchResult([])
-            return
+            setSearchResult([]);
+            return;
         }
-
-
 
         const fetchApi = async () => {
-            setLoading(true)
+            setLoading(true);
 
-            const result = await searchService.search(debouncedSearchTerm)
-            setSearchResult(result)
-            setLoading(false)
-        }
-        fetchApi()
-
+            const result = await searchService.search(debouncedSearchTerm);
+            setSearchResult(result);
+            setLoading(false);
+        };
+        fetchApi();
     }, [debouncedSearchTerm]);
 
     return (
@@ -71,7 +67,7 @@ export default function Search() {
                         <PopperWrapper>
                             <h4 className={cx('search-result-heading')}>Accounts</h4>
                             {searchResult.map((item) => {
-                                return <AccountItem key={item.id} data={item} onClick={handleClearSearch} />
+                                return <AccountItem key={item.id} data={item} onClick={handleClearSearch} />;
                             })}
                         </PopperWrapper>
                     </div>
@@ -95,7 +91,7 @@ export default function Search() {
                     </button>
                     {loading && <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />}
 
-                    <button className={cx('search-btn')} onMouseDown={e => e.preventDefault}>
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <SearchIcon />
                     </button>
                 </div>

@@ -8,7 +8,7 @@ import Header from './Header';
 
 let cx = classNames.bind(styles);
 
-const defaultFnc = () => { };
+const defaultFnc = () => {};
 
 export default function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc }) {
     // console.log(items);
@@ -59,7 +59,7 @@ export default function Menu({ children, items = [], hideOnClick = false, onChan
                                 }}
                             />
                         )}
-                        {renderMenuItem()}
+                        <div className={cx('menu-body')}>{renderMenuItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
