@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './AccountItem.module.scss';
+import styles from './AccountSearch.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Image from '../Image';
@@ -33,5 +33,6 @@ export default function AccountItem({ data, onClick }) {
 }
 
 AccountItem.propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    onClick: PropTypes.func
 }

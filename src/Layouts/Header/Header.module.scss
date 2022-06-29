@@ -12,7 +12,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width);
-    padding: 0 var(--default-layout-app-padding);
+    padding: 0 var(--default-layout-app-padding) 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,7 +48,7 @@
 
     &::after {
         position: absolute;
-        content: '';
+        content: "";
         width: 1px;
         height: 28px;
         right: 52px;
