@@ -84,9 +84,7 @@ const MENU_USER = [
     },
 ];
 
-export default function Header() {
-    const currentUser = true;
-
+export default function Header({ currentUser }) {
     // handle logic
     const handleMenuChange = (item) => {
         console.log(item);

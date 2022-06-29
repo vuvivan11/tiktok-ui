@@ -10,3 +10,34 @@
     font-size: 1.4rem;
     cursor: pointer;
 }
+
+.no-follower {
+    color: rgba(22, 24, 35, 0.5);
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 20px;
+    padding: 0px 8px;
+}
+
+.login {
+    position: relative;
+    padding: 20px 8px 24px 8px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 1px;
+        left: 8px;
+        right: 8px;
+        background: rgba(22, 24, 35, 0.12);
+        transform: scaleY(0.5);
+        top: 0;
+    }
+}
+
+.login-title {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.6rem;
+    line-height: 22px;
+}
