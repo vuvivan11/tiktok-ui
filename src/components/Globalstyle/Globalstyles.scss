@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import 'normalize.css';
 
 :root {
     --primary: #fe2c55;
@@ -8,7 +8,7 @@
     --default-layout-width: 1150px;
     --default-layout-app-padding: 24px;
     --text-color: #333;
-    --font-family: "ProximaNova", sans-serif;
+    --font-family: 'ProximaNova', sans-serif;
 }
 
 * {
@@ -61,22 +61,22 @@ html *::-webkit-scrollbar-track {
 // embedded fonts
 @font-face {
     font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
-    src: url("/assets/fonts/Proxima-Nova-Regular.woff2");
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
     font-weight: 400;
 }
 @font-face {
     font-family: ProximaNova;
-    src: url("/assets/fonts/ProximaNova-Semibold.woff2");
+    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
     font-weight: 600;
 }
 @font-face {
     font-family: ProximaNova;
-    src: url("/assets/fonts/Proxima-Nova-Bold.woff2");
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
     font-weight: 700;
 }
 @font-face {
     font-family: SofiaPro;
-    src: url("/assets/fonts/sofiapro-bold.woff2");
+    src: url('/assets/fonts/sofiapro-bold.woff2');
     font-weight: 700;
 }
 
@@ -110,7 +110,7 @@ body {
         padding: 8px 9px;
     }
 
-    .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
         top: -8px;
     }
 }

@@ -32,12 +32,12 @@ export default function AccountSuggest({ data = {}, popup, ...props }) {
                             </div>
                             <Link to={`/@${data.nickname}`}>
                                 <h4 className={cx('name-popup')}>
-                                    <span>{data.full_name}</span>
+                                    <span>{data.nickname}</span>
                                     {data.tick && <FontAwesomeIcon className={cx('icon-check')} icon={faCheckCircle} />}
                                 </h4>
                             </Link>
                             <Link to={`/@${data.nickname}`}>
-                                <span className={cx('username-popup')}>{data.nickname}</span>
+                                <span className={cx('username-popup')}>{`${data.first_name} ${data.last_name}`}</span>
                             </Link>
                             <div className={cx('suggest-footer')}>
                                 <span className={cx('number')}>{data.followers_count}</span>
@@ -52,11 +52,11 @@ export default function AccountSuggest({ data = {}, popup, ...props }) {
                         <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
                         <div className={cx('info')}>
                             <h4 className={cx('name')}>
-                                <span>{data.full_name}</span>
+                                <span>{data.nickname}</span>
                                 {data.tick && <FontAwesomeIcon className={cx('icon-check')} icon={faCheckCircle} />}
                             </h4>
 
-                            <span className={cx('username')}>{data.nickname}</span>
+                            <span className={cx('username')}>{`${data.first_name} ${data.last_name}`}</span>
                         </div>
                     </Link>
                 </HeadlessTippy>
